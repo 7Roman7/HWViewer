@@ -53,9 +53,11 @@ namespace HWViewer
 
             MessageBox.Show(t);
         }
-
+		
+	   //close
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
+
             Close();
         }
     }
