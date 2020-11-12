@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="300" Width="200">
     <StackPanel>
+        <Menu>
+            <MenuItem Header="File">
+                <MenuItem Header="Open"/>
+                <MenuItem Header="Save"/>
+                <MenuItem Header="Exit" Click="MenuItem_Click"/>
+            </MenuItem>
+            <MenuItem/>
+        </Menu>
         <TextBlock Text="FIO"/>
         <TextBox Name="tbFIO" HorizontalContentAlignment="Right" Text="Антон А"/>
         
