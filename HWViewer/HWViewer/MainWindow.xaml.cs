@@ -57,7 +57,7 @@ namespace HWViewer
 	   //close
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+1111
             Close();
         }
     }
