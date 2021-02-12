@@ -1,0 +1,21 @@
+version: 1.0
+===FIO===
+Петров Иван Игоревич
+===Task===
+Оформление и проверка домашних заданий
+Функции:
+1) Создание документа ДЗ
+2) Просмотр документа ДЗ
+===Decision
+                if (currentAmount > 0)
+                {
+                    var groupCaption = new TextBlock
+                    {
+                        Text = $"{group.Name} ({currentAmount}/{totalAmount})",
+                        FontSize = 16,
+                        Background = (Brush)TryFindResource("lgbTopic"),
+                        TextAlignment=TextAlignment.Center,
+                    };
+
+===Comment===
+Не работает, нипонятно

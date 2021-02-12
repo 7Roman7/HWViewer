@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="scbFont" Color="Black"/>
+    <SolidColorBrush x:Key="scbFontCaption" Color="#646464"/>
+
+    <SolidColorBrush x:Key="scbFontDefault" Color="Black"/>
+    <SolidColorBrush x:Key="scbFontSpecial" Color="#2E00FF"/>
+    <SolidColorBrush x:Key="scbFontClass" Color="#2B91AF"/>
+    <SolidColorBrush x:Key="scbFontComment" Color="#008000"/>
+    <SolidColorBrush x:Key="scbFontStrings" Color="#A31515"/>
+
+    
+    <SolidColorBrush x:Key="scbBack" Color="White"/>
+
+    <Image x:Key="iStyle" Source="/Images/Windows 10 255/sun_32px.png" Stretch="None"/>
+
+</ResourceDictionary>

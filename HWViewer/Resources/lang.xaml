@@ -1,0 +1,24 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:v="clr-namespace:System;assembly=mscorlib">
+
+    <v:String x:Key="AppName">HW Viewer</v:String>
+
+    <v:String x:Key="Open">Open</v:String>
+    <v:String x:Key="Save">Save</v:String>
+    <v:String x:Key="SaveAs">Save As</v:String>
+
+
+    <v:String x:Key="FIO">FIO</v:String>
+    <v:String x:Key="Task">Task</v:String>
+    <v:String x:Key="Decision">Decision</v:String>
+    <v:String x:Key="Comment">Comment</v:String>
+
+    <v:String x:Key="Style">Theme</v:String>
+    <v:String x:Key="RawView">Raw View</v:String>
+
+
+
+
+
+</ResourceDictionary>

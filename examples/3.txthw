@@ -1,0 +1,212 @@
+===FIO===
+Сарсембаева Диана
+===Task===
+Разработать библиотеку, позволяющую вычислять площади разных геометрический фигур.
+Создать юнит-тесты для разработанной библиотеки. Должно быть реализовано 20 тестов.
+===Decision===
+
+using System;
+
+namespace FiguresArea
+{
+    public static class FiguresSquare
+    {
+        public static double Square(int a)
+        {
+            double s = Math.Pow(a, 2);
+            Console.WriteLine("Площадь квадрата: "+s);
+            return s;
+        }
+        public static double Rectangle(int a, int b)
+        {
+            double s = a * b;
+            Console.WriteLine("Площадь прямоугольника: " + s);
+            return s;
+        }
+        public static double Trapezoid(int a, int b,int h)
+        {
+            double s = 0.5*h*(a+b);
+            Console.WriteLine("Площадь трапеции: " + s);
+            return s;
+        }
+        public static double Circle(int r)
+        {
+            double s = Math.Round(Math.PI * Math.Pow(r, 2),2);
+            Console.WriteLine("Площадь круга: " + s );
+            return s;
+        }
+    }
+}
+
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using FiguresArea;
+
+namespace UnitTestProjectFiguresArea
+{
+    [TestClass]
+    public class UnitTest1
+    {
+        //Площадь квадрата
+
+        [TestMethod]
+        public void TestSquareArea_Send_5_Await_25()
+        {
+            double expected = 25;
+            double actual = FiguresSquare.Square(5);
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void TestSquareArea_Send_2_Await_4()
+        {
+            double expected = 4;
+            double actual = FiguresSquare.Square(2);
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void TestSquareArea_Send_10_Await_100()
+        {
+            double expected = 100;
+            double actual = FiguresSquare.Square(10);
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void TestSquareArea_Send_6_Await_36()
+        {
+            double expected = 36;
+            
+            double actual = FiguresSquare.Square(6);
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void TestSquareArea_Send_3_Await_9()
+        {
+            double expected = 9;
+            double actual = FiguresSquare.Square(3);
+            Assert.AreEqual(expected, actual);
+        }
+
+        //Площадь прямоугольника
+
+        [TestMethod]
+        public void TestRectangleArea_Send_3_And_6_Await_18()
+        {
+            double expected = 18;
+            double actual = FiguresSquare.Rectangle(3,6);
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void TestRectangleArea_Send_2_And_4_Await_8()
+        {
+            double expected = 8;
+            double actual = FiguresSquare.Rectangle(2,4);
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void TestRectangleArea_Send_5_And_10_Await_50()
+        {
+            double expected = 50;
+            double actual = FiguresSquare.Rectangle(5,10);
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void TestRectangleArea_Send_2_And_10_Await_20()
+        {
+            double expected = 20;
+            double actual = FiguresSquare.Rectangle(2,10);
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void TestRectangleArea_Send_6_And_10_Await_60()
+        {
+            double expected = 60;
+            double actual = FiguresSquare.Rectangle(6,10);
+            Assert.AreEqual(expected, actual);
+        }
+
+        // Площадь трапеции
+
+        [TestMethod]
+        public void TestTrapezoidArea_Send_6_And_8_And_3_Await_21()
+        {
+            double expected = 21;
+            double actual = FiguresSquare.Trapezoid(6,8,3);
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void TestTrapezoidArea_Send_2_And_5_And_4_Await_14()
+        {
+            double expected = 14;
+            double actual = FiguresSquare.Trapezoid(2,5,4);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void TestTrapezoidArea_Send_4_And_8_And_2_Await_12()
+        {
+            double expected = 12;
+            double actual = FiguresSquare.Trapezoid(4,8,2);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void TestTrapezoidArea_Send_3_And_5_And_2_Await_12()
+        {
+            double expected = 8;
+            double actual = FiguresSquare.Trapezoid(3,5,2);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void TestTrapezoidArea_Send_2_And_5_And_1_Await_12()
+        {
+            double expected = 3.5;
+            double actual = FiguresSquare.Trapezoid(2,5,1);
+            Assert.AreEqual(expected, actual);
+        }
+
+        //Площадь круга
+
+        [TestMethod]
+        public void TestCircleArea_Send_1_Await_3_14()
+        {
+            double expected =3.14;
+            double actual = FiguresSquare.Circle(1);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void TestCircleArea_Send_2_Await_12_6()
+        {
+            double expected = 12.57;
+            double actual = FiguresSquare.Circle(2);
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void TestCircleArea_Send_3_Await_28_3()
+        {
+            double expected =28.27;
+            double actual = FiguresSquare.Circle(3);
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void TestCircleArea_Send_5_Await_78_5()
+        {
+            double expected = 78.54;
+            double actual = FiguresSquare.Circle(5);
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void TestCircleArea_Send_6_Await_113_1()
+        {
+            double expected = 113.1;
+            double actual = FiguresSquare.Circle(6);
+            Assert.AreEqual(expected, actual);
+        }
+    }
+}
+
+
+
+===Comment===

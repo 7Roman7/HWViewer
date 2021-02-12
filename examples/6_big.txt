@@ -1,0 +1,125 @@
+version: 1.0
+===FIO===
+Алексеева Наталья
+===Task===
+Выполнять строго последовательно: 
+
+    Создайте приложение, выводящее информацию о носителях информации на компьютере. Возможен вывод информации (название, размер, свободное место) как по каждому отдельному устройству, так и обобщённо. 
+
+    Залейте решение в GitHub. 
+
+    Сделать commit с добавлением файла testCommit. 
+
+    Создайте 3 Test Case-а для созданного приложения. 
+===Decision===
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Windows.Media;
+
+namespace HWViewer.Tools
+{
+    static class CodeFormatter
+    {
+
+        static string DeleteTabsFromStart(string s)
+        {
+            var minEmptySymbols = s.Length;
+            var lines = s.Split(new string[]{ Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries);
+            foreach (var l in lines)
+            {
+                var emptySymbols = 0;
+                for (var i = 0; i < l.Length; i++)
+                    if (l[i] == '\t' || l[i] == ' ')
+                        emptySymbols++;
+                    else
+                        break;
+
+                if (emptySymbols < minEmptySymbols)
+                    minEmptySymbols = emptySymbols;
+            }
+
+            StringBuilder sbResult = new StringBuilder();
+
+            foreach (var l in lines)
+                sbResult.Append(l.Substring(minEmptySymbols) + Environment.NewLine);
+
+            return sbResult.ToString();
+        }
+
+        static string[] blueWords = {
+            "public","private","internal","protected",
+            "static","const","using",
+            "void",
+            "for","foreach", "while", "do",
+            "if", "else",
+            "as", "is", "in",
+            "object","bool","byte","int","long","float","double","decimal","string",
+            "true", "false",
+            "new","var",
+        };
+
+        static string[] greenWords = {
+            "Console",
+            "Environment",
+        };
+
+        static char[] delimeters = { ' ','.','.',':',';',
+            '(',')',
+            '\r','\n','\t'
+        };
+
+        public static void Fill(Window window, RichTextBox rtb, string code)
+        {
+            code = DeleteTabsFromStart(code);
+            rtb.Document.Blocks.Clear();
+            StringBuilder word = new StringBuilder();
+            Paragraph paragraph = new Paragraph();
+
+            code = code.Replace("\r\n", "\n");
+
+            for (int i = 0; i < code.Length; i++)
+            {
+                char workingSymbol = code[i];
+                if (!delimeters.Contains(workingSymbol))
+                {
+                    word.Append(workingSymbol);
+                    if (i != code.Length)
+                        continue;
+                }
+                if (word.Length > 0)
+                {
+                    var run = new Run(word.ToString());
+                    if (blueWords.Contains(word.ToString()))
+                        run.SetResourceReference(TextElement.ForegroundProperty, "scbFontBlue");
+                    else if (greenWords.Contains(word.ToString()))
+                        run.SetResourceReference(TextElement.ForegroundProperty, "scbFontGreen");
+                    else
+                        run.SetResourceReference(TextElement.ForegroundProperty, "scbFont");
+
+                    paragraph.Inlines.Add(run);
+                    word.Clear();
+                }
+
+                if (workingSymbol == '\n')
+                {
+                    paragraph.Inlines.Add(new LineBreak());
+                }
+                else
+                {
+                    var runForDelimeter = new Run(workingSymbol.ToString());
+                    runForDelimeter.SetResourceReference(TextElement.ForegroundProperty, "scbFont");
+                    paragraph.Inlines.Add(runForDelimeter);
+                }
+            }
+
+            rtb.Document.Blocks.Add(paragraph);
+        }
+    }
+}
+===Comment===

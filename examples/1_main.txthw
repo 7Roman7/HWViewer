@@ -1,0 +1,32 @@
+===FIO===
+Петров Иван Игоревич
+===Task===
+Оформление и проверка домашних заданий
+Функции:
+1) Создание документа ДЗ
+2) Просмотр документа ДЗ
+===Decision===
+public static HomeWork Open(string path)
+{
+    var hw = new HomeWork();
+    try
+    {
+        using (var streamReader = new StreamReader(path))
+        {
+            string content = streamReader.ReadToEnd();
+            hw.FIO = ExtractText(content, Header_FIO, Header_Task);
+            hw.Task = ExtractText(content, Header_Task, Header_Decision);
+            hw.Decision = ExtractText(content, Header_Decision, Header_Comment);
+            hw.Comment = ExtractText(content, Header_Comment);
+        }
+    }
+    catch
+    {
+        throw new FileFormatException();
+    }
+    return hw;
+}
+
+
+===Comment===
+Не работает, нипонятно

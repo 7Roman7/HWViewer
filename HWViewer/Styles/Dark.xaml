@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="scbFont" Color="LightGray"/>
+    <SolidColorBrush x:Key="scbFontCaption" Color="Silver"/>
+
+    <SolidColorBrush x:Key="scbFontDefault" Color="#DCDCDC"/>
+    <SolidColorBrush x:Key="scbFontSpecial" Color="#569CD4"/>
+    <SolidColorBrush x:Key="scbFontClass" Color="#4EC9B0"/>
+    <SolidColorBrush x:Key="scbFontComment" Color="#608B4D"/>
+    <SolidColorBrush x:Key="scbFontStrings" Color="#D69D85"/>
+    
+
+    <SolidColorBrush x:Key="scbBack" Color="#1E1E1E"/>
+
+    <Image x:Key="iStyle" Source="/Images/Windows 10 255/moon_symbol_32px.png" Stretch="None" />
+    
+
+</ResourceDictionary>
